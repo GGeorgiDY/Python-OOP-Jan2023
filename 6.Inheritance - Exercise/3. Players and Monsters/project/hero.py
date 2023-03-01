@@ -10,4 +10,3 @@ class Hero:
 hero = Hero("H", 4)
 print(hero.username)
 print(hero.level)
-print(str(hero))
