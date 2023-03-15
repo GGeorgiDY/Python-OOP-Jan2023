@@ -32,7 +32,7 @@ class MovieWorld:
         dvd = [d for d in self.dvds if d.id == dvd_id][0]
         # dvd = next(filter(lambda x: x.id == dvd_id, self.dvds))
 
-        if dvd in customer.rented_dvds: # ако dvd-то не е наето от нашия човек
+        if dvd in customer.rented_dvds: # ако dvd-то е наето от нашия човек
             return f"{customer.name} has already rented {dvd.name}"
 
         if dvd.is_rented: # ако dvd-то е наето от някой друг
