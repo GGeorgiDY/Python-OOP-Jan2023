@@ -2,11 +2,13 @@ from project.band_members.musician import Musician
 
 
 class Guitarist(Musician):
+    LEARNABLE_SKILLS = ["play metal", "play rock", "play jazz"]
+
+    def __init__(self, name: str, age: int):
+        super().__init__(name, age)
 
     def learn_new_skill(self, new_skill: str):
-        learnable_skills = ["play metal", "play rock", "play jazz"]
-
-        if new_skill not in learnable_skills:
+        if new_skill not in self.LEARNABLE_SKILLS:
             raise ValueError(f"{new_skill} is not a needed skill!")
 
         if new_skill in self.skills:

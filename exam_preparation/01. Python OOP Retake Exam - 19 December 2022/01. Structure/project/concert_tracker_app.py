@@ -23,17 +23,18 @@ class ConcertTrackerApp:
             raise ValueError(f"{name} is already a musician!")
 
         #create the musician
+        # add it to the musicians' list
         if musician_type == valid_musician_types[0]:
             musician = Guitarist(name, age)
+            self.musicians.append(musician)
 
-        if musician_type == valid_musician_types[1]:
+        elif musician_type == valid_musician_types[1]:
             musician = Drummer(name, age)
+            self.musicians.append(musician)
 
-        if musician_type == valid_musician_types[2]:
+        elif musician_type == valid_musician_types[2]:
             musician = Singer(name, age)
-
-        # add it to the musicians' list
-        self.musicians.append(musician)
+            self.musicians.append(musician)
 
         return f"{name} is now a {musician_type}."
 
@@ -64,8 +65,8 @@ class ConcertTrackerApp:
             raise Exception(f"{band_name} isn't a band!")
 
         # add the musician to the band
-        band = [x for x in self.bands if x.name == band_name][0]
         musician = [x for x in self.musicians if x.name == musician_name][0]
+        band = [x for x in self.bands if x.name == band_name][0]
         band.members.append(musician)
 
         return f"{musician_name} was added to {band_name}."
@@ -83,6 +84,8 @@ class ConcertTrackerApp:
         # remove the musician from the band
         musician = [x for x in self.musicians if x.name == musician_name][0]
         band.members.remove(musician)
+
+        return f"{musician_name} was removed from {band_name}."
 
     def start_concert(self, concert_place: str, band_name: str):
         # The concert place and the band name will always be valid

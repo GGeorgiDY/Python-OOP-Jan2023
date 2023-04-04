@@ -19,6 +19,10 @@ class TruckDriverTests(TestCase):
             self.truck_driver.earned_money = -1
         self.assertEqual("Gosho went bankrupt.", str(ve.exception))
 
+    def test_earned_money(self):
+        self.truck_driver.earned_money = 4
+        self.assertEqual(4, self.truck_driver.earned_money)
+
     def test_add_cargo_offer_exception(self):
         self.truck_driver.available_cargos = {'Sofia': 100}
         with self.assertRaises(Exception) as ex:
